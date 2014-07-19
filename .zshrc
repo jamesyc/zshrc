@@ -46,12 +46,26 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+setopt RM_STAR_WAIT
+setopt ZLE
+setopt NO_HUP
+setopt NO_FLOW_CONTROL
+setopt EXTENDED_GLOB
+
+SAVEHIST=10000
+HISTSIZE=10000
+setopt HIST_REDUCE_BLANKS
+setopt EXTENDED_HISTORY
+
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias update="brew update && brew upgrade"
 
 alias shred="gshred"
+alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
+alias -g G="| grep"
+alias -g L="| less"
 
 alias fucking="sudo"
 alias smite="rm -rf"
